@@ -1,10 +1,7 @@
-//npm i node-telegram-bot-api nodemon
-
 const TelegramApi = require('node-telegram-bot-api')
 const {gameOptions, againOptions} = require('./options')
 const token = '7303446282:AAHFPPftGUJoRh1CGiWFLEXZbRUM1e7oINE'
 
-//передаём токен и опции
 const bot = new TelegramApi(token, {polling: true})
 
 const chats = {}
@@ -17,14 +14,10 @@ const startGame = async (chatId) => {
     await bot.sendMessage(chatId, 'Отгадывай', gameOptions)
 }
 
-//функция что будет запускать приложение
 const start = () => {
-    //повесим слушатель события на обработку сообщений
     bot.on('message', async msg => {
 
-        //текст что отправил пользователь
         const text = msg.text
-        //его Id
         const chatId = msg.chat.id
 
 
